@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
+import uuid from 'uuid/v4';
 
-const Form = () => {
+const Form = ({createQuote}) => {
   // create State of quotes
   const [quote, updateQuote] = useState({
     pet: "",
@@ -35,11 +36,23 @@ const Form = () => {
             return;
         }
 
+      // Remove previous message
+
+      updateError(false);
+
       // Asign Id
+      quote.id = uuid();
 
       // Create quote
-
+      createQuote(quote);
       // Reset form
+      updateQuote({
+        pet: "",
+        owner: "",
+        date: "",
+        time: "",
+        symptoms: "",
+      })
 
 
   }
