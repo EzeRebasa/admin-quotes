@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import uuid from 'uuid/v4';
+import PropTypes from 'prop-types';
 
 const Form = ({createQuote}) => {
   // create State of quotes
@@ -53,8 +54,6 @@ const Form = ({createQuote}) => {
         time: "",
         symptoms: "",
       })
-
-
   }
 
   return (
@@ -120,5 +119,9 @@ const Form = ({createQuote}) => {
     </Fragment>
   );
 };
+
+Form.propTypes = {
+  createQuote: PropTypes.func.isRequired
+}
 
 export default Form;

@@ -16,6 +16,8 @@ function App() {
 
   // Use Effect to realize certain operations when state changes
   useEffect(() => {
+    let initialQuotes = JSON.parse(localStorage.getItem('quotes'));
+    
     if(initialQuotes){
       localStorage.setItem('quotes', JSON.stringify(quotes))
     } else {
